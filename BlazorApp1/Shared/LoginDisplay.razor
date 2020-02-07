@@ -1,0 +1,24 @@
+﻿<AuthorizeView>
+    Hello, @context.User.Identity.Name!
+    <div>
+        @foreach (var claim in context.User.Claims)
+        {
+            <div>
+                <p>@claim.Type</p> <p>@claim.Value</p>
+            </div>
+            <div>
+                <p>Properties:</p>
+            </div>
+                {
+
+                @foreach (var p in claim.Properties)
+                {
+                    <div>
+                        Key:<p>@p.Key</p> Value:<p>@p.Value</p>
+                    </div>
+                }
+                }
+            
+    }
+        </div>
+    </AuthorizeView>
